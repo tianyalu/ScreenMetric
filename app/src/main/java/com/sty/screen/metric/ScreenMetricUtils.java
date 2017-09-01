@@ -195,48 +195,4 @@ public class ScreenMetricUtils {
         activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.heightPixels;
     }
-
-    /**
-     * 获取应用区域的高度
-     * @param activity
-     * @return
-     */
-    public static int getAppAreaHeight(Activity activity){
-        Rect outRect = new Rect();
-        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect);
-        return outRect.height();
-    }
-
-    /**
-     * 获取应用区域的顶部位置（该方法必须放在onWindowFocusChanged()回调方法中才起作用，否则返回值为0）
-     * @param activity
-     * @return
-     */
-    public static int getAppAreaTop(Activity activity){
-        Rect outRect = new Rect();
-        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect);
-        return outRect.top;
-    }
-
-    /**
-     * 获取绘制区域的高度（该方法必须放在onWindowFocusChanged()回调方法中才起作用，否则返回值为0）
-     * @param activity
-     * @return
-     */
-    public static int getDrawableAreaHeight(Activity activity){
-        Rect outRect = new Rect();
-        activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT).getDrawingRect(outRect);
-        return outRect.height();
-    }
-
-    /**
-     * 获取绘制区域的顶部位置（该方法必须放在onWindowFocusChanged()回调方法中才起作用，否则返回值为0）
-     * @param activity
-     * @return
-     */
-    public static int getDrawableAreaTop(Activity activity){
-        int viewTop = -1;
-        viewTop = activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();
-        return viewTop;
-    }
 }

@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
+import android.view.Window;
 
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -156,7 +158,7 @@ public class ScreenMetricUtils {
     }
 
     /**
-     * 像素转换为dp (pixel = dip * density)
+     * 像素转换为dp (dip = pixel / density)
      * @param cxt
      * @param pixel :像素
      * @return
@@ -164,5 +166,77 @@ public class ScreenMetricUtils {
     public static int convertPixelToDp(Context cxt, int pixel){
         DisplayMetrics displayMetrics = cxt.getResources().getDisplayMetrics();
         return (int)(pixel/displayMetrics.density);
+    }
+
+
+    /**
+     * 获取状态栏高度(像素)
+     * @param cxt
+     * @return
+     */
+    public static int getStatusBarHeight(Context cxt){
+        int statusBarHeight = -1;
+        //获取status_bar_height资源的ID
+        int resourceId = cxt.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if(resourceId > 0){
+            //根据资源ID获取相应的尺寸
+            statusBarHeight = cxt.getResources().getDimensionPixelSize(resourceId);
+        }
+        return statusBarHeight;
+    }
+
+    /**
+     * 获取屏幕实际高度(像素)
+     * @param activity
+     * @return
+     */
+    public static int getScreenHeight(Activity activity){
+        DisplayMetrics dm = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        return dm.heightPixels;
+    }
+
+    /**
+     * 获取应用区域的高度
+     * @param activity
+     * @return
+     */
+    public static int getAppAreaHeight(Activity activity){
+        Rect outRect = new Rect();
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect);
+        return outRect.height();
+    }
+
+    /**
+     * 获取应用区域的顶部位置（该方法必须放在onWindowFocusChanged()回调方法中才起作用，否则返回值为0）
+     * @param activity
+     * @return
+     */
+    public static int getAppAreaTop(Activity activity){
+        Rect outRect = new Rect();
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect);
+        return outRect.top;
+    }
+
+    /**
+     * 获取绘制区域的高度（该方法必须放在onWindowFocusChanged()回调方法中才起作用，否则返回值为0）
+     * @param activity
+     * @return
+     */
+    public static int getDrawableAreaHeight(Activity activity){
+        Rect outRect = new Rect();
+        activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT).getDrawingRect(outRect);
+        return outRect.height();
+    }
+
+    /**
+     * 获取绘制区域的顶部位置（该方法必须放在onWindowFocusChanged()回调方法中才起作用，否则返回值为0）
+     * @param activity
+     * @return
+     */
+    public static int getDrawableAreaTop(Activity activity){
+        int viewTop = -1;
+        viewTop = activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();
+        return viewTop;
     }
 }

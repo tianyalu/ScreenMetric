@@ -7,10 +7,13 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView tvDensity;
     private TextView tvDensityXY;
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvDrawableAreaHeight;
     private TextView tvDrawableAreaTop;
 
+    private Button btnJudgeIsPad;
+    private Button btnForceSetOrientation;
+
     private Handler handler;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -38,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         handler = new Handler();
         initViews();
+        setListeners();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -58,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         tvDrawableAreaHeight = (TextView) findViewById(R.id.tv_drawable_area_height);
         tvDrawableAreaTop = (TextView) findViewById(R.id.tv_drawable_area_top);
 
+        btnJudgeIsPad = (Button) findViewById(R.id.btn_judge_ispad);
+        btnForceSetOrientation = (Button) findViewById(R.id.btn_set_orientation);
 
         tvDensity.setText("屏幕密度density：" + ScreenMetricUtils.getDensity(this));
         tvDensityDpi.setText("屏幕密度Dpi：" + ScreenMetricUtils.getDensityDpi(this));
@@ -72,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void setListeners(){
+        btnJudgeIsPad.setOnClickListener(this);
+        btnForceSetOrientation.setOnClickListener(this);
+    }
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -117,4 +130,17 @@ public class MainActivity extends AppCompatActivity {
                 " titleBarHeight=" + titleBarHeight);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_judge_ispad:
+                Toast.makeText(this, "is pad?: " +ScreenMetricUtils.isPad(MainActivity.this), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btn_set_orientation:
+                ScreenMetricUtils.forceSetOrientation(this);
+                break;
+            default:
+                break;
+        }
+    }
 }

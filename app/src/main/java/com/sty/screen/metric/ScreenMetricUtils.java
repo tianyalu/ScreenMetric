@@ -2,15 +2,16 @@ package com.sty.screen.metric;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Point;
 import android.graphics.PointF;
-import android.graphics.Rect;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.ActionBar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
-import android.view.Window;
 
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -194,5 +195,29 @@ public class ScreenMetricUtils {
         DisplayMetrics dm = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.heightPixels;
+    }
+
+    /**
+     * 判断设备是否为Pad，然后可以根据这个来设置设备的横竖屏
+     * @param activity
+     * @return
+     */
+    public static boolean isPad(Activity activity) {
+        boolean isLandscape = TabletUtil.isTabletByLayout(activity) || TabletUtil.isMoreThan6Inch(activity)
+                || TabletUtil.isTabletByPhone(activity);
+        Log.i("Tag", "---is pad? --" + isLandscape);
+        return isLandscape;
+    }
+
+    public static void forceSetOrientation(Activity activity){
+        if(isPad(activity)){ //设置为横屏
+            if(activity.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }
+        }else{ //设置为竖屏
+            if(activity.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            }
+        }
     }
 }

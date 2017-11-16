@@ -10,93 +10,114 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.sty.screen.metric.MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tv_density"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_densityDpi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_densityXY"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_print_size"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_real_size"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_screen_inch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_screen_inch2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_status_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_title_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_screen_height"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_app_area_height"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_app_area_top"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_drawable_area_height"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-        <TextView
-            android:id="@+id/tv_drawable_area_top"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Hello World!" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_density"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_densityDpi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_densityXY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_print_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_real_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_screen_inch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_screen_inch2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_screen_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_app_area_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_app_area_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_drawable_area_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+            <TextView
+                android:id="@+id/tv_drawable_area_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hello World!" />
+
+
+            <Button
+                android:id="@+id/btn_judge_ispad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="判断是否为Pad(在A920C上有问题)"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btn_set_orientation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="根据是否为Pad设置横竖屏"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

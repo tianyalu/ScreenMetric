@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvScreenInch2;
 
     private TextView tvStatusBar;
+    private TextView tvNavigationBar;
     private TextView tvTitleBar;
     private TextView tvScreenHeight;
     private TextView tvAppAreaHeight;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvScreenInch2 = (TextView) findViewById(R.id.tv_screen_inch2);
 
         tvStatusBar = (TextView) findViewById(R.id.tv_status_bar);
+        tvNavigationBar = (TextView) findViewById(R.id.tv_navigation_bar);
         tvTitleBar = (TextView) findViewById(R.id.tv_title_bar);
         tvScreenHeight = (TextView) findViewById(R.id.tv_screen_height);
         tvAppAreaHeight = (TextView) findViewById(R.id.tv_app_area_height);
@@ -77,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvScreenInch2.setText("屏幕Inch2：" + ScreenMetricUtils.getScreenInch(this));
 
         tvStatusBar.setText("状态栏高度：" + ScreenMetricUtils.getStatusBarHeight(this));
+        tvNavigationBar.setText("底部导航栏高度：" + ScreenMetricUtils.getNavigationBarHeight(this));
         tvScreenHeight.setText("屏幕高度：" + ScreenMetricUtils.getScreenHeight(this));
 
     }

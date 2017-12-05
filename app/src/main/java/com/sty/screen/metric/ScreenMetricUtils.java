@@ -187,6 +187,22 @@ public class ScreenMetricUtils {
     }
 
     /**
+     * 获取底部导航栏的高度(像素)
+     * @param cxt
+     * @return
+     */
+    public static int getNavigationBarHeight(Context cxt){
+        int navigationBarHeight = -1;
+        //获取navigation_bar_height资源的ID
+        int resourceId = cxt.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
+        if(resourceId > 0){
+            //根据资源ID获取相应的尺寸
+            navigationBarHeight = cxt.getResources().getDimensionPixelSize(resourceId);
+        }
+        return navigationBarHeight;
+    }
+
+    /**
      * 获取屏幕实际高度(像素)
      * @param activity
      * @return
@@ -209,6 +225,10 @@ public class ScreenMetricUtils {
         return isLandscape;
     }
 
+    /**
+     * 根据是否为Pad 设置横竖屏
+     * @param activity
+     */
     public static void forceSetOrientation(Activity activity){
         if(isPad(activity)){ //设置为横屏
             if(activity.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
